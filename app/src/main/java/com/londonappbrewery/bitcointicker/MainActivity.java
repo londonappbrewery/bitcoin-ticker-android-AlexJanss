@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+                Log.d("Bitcoin", "" + parent.getItemAtPosition(position));
             }
 
             @Override
