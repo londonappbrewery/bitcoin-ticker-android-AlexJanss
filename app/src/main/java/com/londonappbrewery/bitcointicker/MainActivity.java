@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
 
     // Constants:
-    private final String BASE_URL = "ttps://apiv2.bitcoinaverage.com/indices/global/ticker/BTCUSD";
+    private final String BASE_URL = "https://apiv2.bitcoinaverage.com/indices/global/ticker/BTC";
 
     // Member Variables:
     TextView mPriceTextView;
@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                letsDoSomeNetworking(BASE_URL + parent.getItemAtPosition(position));
                 Log.d("Bitcoin", "" + parent.getItemAtPosition(position));
             }
 
