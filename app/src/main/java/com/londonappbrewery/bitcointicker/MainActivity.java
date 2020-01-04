@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.Toast;
+import cz.msebera.android.httpclient.Header;
 
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -23,7 +23,6 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity {
 
     // Constants:
-    // TODO: Create the base URL
     private final String BASE_URL = "ttps://apiv2.bitcoinaverage.com/indices/global/ticker/BTCUSD";
 
     // Member Variables:
@@ -64,14 +63,14 @@ public class MainActivity extends AppCompatActivity {
     private void letsDoSomeNetworking(String url) {
 
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get(WEATHER_URL, params, new JsonHttpResponseHandler() {
+        client.get(url, new JsonHttpResponseHandler() {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 // called when response HTTP status is "200 OK"
                 Log.d("Bitcoin", "JSON: " + response.toString());
-                WeatherDataModel weatherData = WeatherDataModel.fromJson(response);
-                updateUI(weatherData);
+//                WeatherDataModel weatherData = WeatherDataModel.fromJson(response);
+//                updateUI(weatherData);
             }
 
             @Override
@@ -80,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("Bitcoin", "Request fail! Status code: " + statusCode);
                 Log.d("Bitcoin", "Fail response: " + response);
                 Log.e("ERROR", e.toString());
-                Toast.makeText(WeatherController.this, "Request Failed", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(WeatherController.this, "Request Failed", Toast.LENGTH_SHORT).show();
             }
         });
 
